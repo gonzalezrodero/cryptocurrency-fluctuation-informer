@@ -10,12 +10,13 @@ public class ExchangeRatesLTC implements Observer {
         ccp.registerObserver(this);
     }
 
-    public ExchangeRatesLTC getLTCExchangeRates(){
-        return this;
+    public double getLTCExchangeRates(){
+        return Double.parseDouble(LTCtoEUR);
     }
 
     @Override
     public void update(ExchangeRates er) {
-        LTCtoEUR = er.LTCtoEUR;
+        LTCtoEUR = er.getLTCtoEUR();
+        System.out.println(LTCtoEUR);
     }
 }

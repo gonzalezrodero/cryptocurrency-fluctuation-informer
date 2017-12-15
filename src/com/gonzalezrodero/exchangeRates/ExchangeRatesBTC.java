@@ -10,12 +10,13 @@ public class ExchangeRatesBTC implements Observer {
         ccp.registerObserver(this);
     }
 
-    public ExchangeRatesBTC getBTCExchangeRates(){
-        return this;
+    public double getBTCExchangeRates(){
+        return Double.parseDouble(BTCtoEUR);
     }
 
     @Override
     public void update(ExchangeRates er) {
-        BTCtoEUR = er.BTCtoEUR;
+        BTCtoEUR = er.getBTCtoEUR();
+        System.out.println(BTCtoEUR);
     }
 }

@@ -10,12 +10,13 @@ public class ExchangeRatesETH implements Observer {
         ccp.registerObserver(this);
     }
 
-    public ExchangeRatesETH getETHExchangeRates(){
-        return this;
+    public double getETHExchangeRates(){
+        return Double.parseDouble(ETHtoEUR);
     }
 
     @Override
     public void update(ExchangeRates er) {
-        ETHtoEUR = er.ETHtoEUR;
+        ETHtoEUR = er.getETHtoEUR();
+        System.out.println(ETHtoEUR);
     }
 }

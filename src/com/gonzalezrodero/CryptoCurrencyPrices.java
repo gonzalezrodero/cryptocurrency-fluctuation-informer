@@ -8,17 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CryptoCurrencyPrices implements Subject {
-    private ExchangeRates exchangeRates;
+    private ExchangeRates exchangeRates = new ExchangeRates();
 
-    private void setExchangeRates(ExchangeRates er){
-        exchangeRates = er;
+    public void getLatestExchangeRates(String BTCtoEUR, String ETHtoEUR, String LTCtoEUR){
+        exchangeRates.setBTCtoEUR(BTCtoEUR);
+        exchangeRates.setETHtoEUR(ETHtoEUR);
+        exchangeRates.setLTCtoEUR(LTCtoEUR);
+        informCurrentExchangeRates();
     }
 
-    private void getNewExchangeRates(ExchangeRates er){
-        informCurrectExchangeRates();
-    }
-
-    // Observer design pattern applied
+    // Observer design pattern
 
     private List<Observer> observers = new ArrayList<>();
 
@@ -39,7 +38,7 @@ public class CryptoCurrencyPrices implements Subject {
         }
     }
 
-    private void informCurrectExchangeRates() {
+    private void informCurrentExchangeRates() {
         notifyObservers();
     }
 }

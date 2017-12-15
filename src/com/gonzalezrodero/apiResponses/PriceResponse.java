@@ -20,10 +20,10 @@ public class PriceResponse {
     // first price of the day
     private String open;
 
-    public double getPrice() {
+    public String getlatestPrice() {
 //        double vwap = Double.parseDouble(this.vwap);
 //        // 0.022 is a factor to get as close as possible to the Revolut value
 //        return vwap - vwap*0.019;
-        return Double.parseDouble(last);
+        return last;
     }
 }
