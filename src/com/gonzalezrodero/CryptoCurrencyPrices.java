@@ -1,6 +1,6 @@
 package com.gonzalezrodero;
 
-import com.gonzalezrodero.ExchangeRates.ExchangeRate;
+import com.gonzalezrodero.exchangeRates.ExchangeRates;
 import com.gonzalezrodero.interfaces.Observer;
 import com.gonzalezrodero.interfaces.Subject;
 
@@ -8,10 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CryptoCurrencyPrices implements Subject {
-    private ExchangeRate exchangeRate;
+    private ExchangeRates exchangeRates;
 
-    private void setExchangeRate(ExchangeRate er){
-        exchangeRate = er;
+    private void setExchangeRates(ExchangeRates er){
+        exchangeRates = er;
+    }
+
+    private void getNewExchangeRates(ExchangeRates er){
+        informCurrectExchangeRates();
     }
 
     // Observer design pattern applied
@@ -31,7 +35,11 @@ public class CryptoCurrencyPrices implements Subject {
 
     public void notifyObservers() {
         for (Observer observer : observers) {
-            observer.update(exchangeRate);
+            observer.update(exchangeRates);
         }
+    }
+
+    private void informCurrectExchangeRates() {
+        notifyObservers();
     }
 }

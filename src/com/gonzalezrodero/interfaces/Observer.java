@@ -1,7 +1,7 @@
 package com.gonzalezrodero.interfaces;
 
-import com.gonzalezrodero.ExchangeRates.ExchangeRate;
+import com.gonzalezrodero.exchangeRates.ExchangeRates;
 
 public interface Observer {
-    void update(ExchangeRate er);
+    void update(ExchangeRates er);
 }
